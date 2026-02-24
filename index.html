@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Query2Uncertainty: Robust Uncertainty Quantification and Calibration for 3D Object Detection under Distribution Shift">
+  <meta name="keywords" content="Uncertainty Estimation, 3D Object Detection, Calibration, Autonomous Driving, DETR, Distribution Shift">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Query2Uncertainty: Robust Uncertainty Quantification and Calibration for 3D Object Detection under Distribution Shift</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .under-construction {
+      background-color: #f5f5f5;
+      border: 2px dashed #b5b5b5;
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: #7a7a7a;
+      margin: 2rem 0;
+    }
+    .under-construction .icon-large {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #b5b5b5;
+    }
+    .under-construction p {
+      font-size: 1.1rem;
+    }
+    .tag.is-cvpr {
+      background-color: #1565C0;
+      color: white;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Query2Uncertainty: Robust Uncertainty Quantification and Calibration for 3D Object Detection under Distribution Shift</h1>
+
+          <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
+            <span class="author-block">Till Beemelmanns<sup>1</sup>,&nbsp;</span>
+            <span class="author-block">Alexey Nekrasov<sup>2</sup>,&nbsp;</span>
+            <span class="author-block">Stefan Vilceanu<sup>1</sup>,&nbsp;</span>
+            <span class="author-block">Jonas Steinhaus<sup>1</sup>,&nbsp;</span>
+            <span class="author-block">Timo Woopen<sup>1</sup>,&nbsp;</span>
+            <br>
+            <span class="author-block">Bastian Leibe<sup>2</sup>,&nbsp;</span>
+            <span class="author-block">Lutz Eckstein<sup>1</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+            <span class="author-block"><sup>1</sup>Institute for Automotive Engineering, RWTH Aachen&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Computer Vision Institute, RWTH Aachen</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <span class="tag is-cvpr">CVPR 2026</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://query2uncertainty.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://query2uncertainty.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://query2uncertainty.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser placeholder -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="under-construction">
+        <div class="icon-large">
+          <i class="fas fa-image"></i>
+        </div>
+        <p><strong>Teaser Figure</strong></p>
+        <p>Coming soon &mdash; image/video placeholder</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reliable uncertainty estimation for 3D object detection is critical for deploying safe autonomous systems, yet modern detectors remain poorly calibrated, especially under distribution shifts.
+            Although post-hoc calibration methods address this issue and provide improved calibration for in-distribution tests, they fail to adapt in distribution-shifted scenarios.
+          </p>
+          <p>
+            In this work, we address this issue and introduce a density-aware calibration method that couples post-hoc calibrators with the feature density of latent object queries from DETR-style 3D object detectors.
+            These queries form a compact, location and class-aware feature, ideal for density estimation, allowing our approach to adjust model confidences in distribution-shift scenarios.
+          </p>
+          <p>
+            By fitting a density estimator on these query features, our approach jointly recalibrates both classification and bounding box regression uncertainties.
+            On both a multi-view camera and LiDAR-based detector, our approach consistently outperforms standard post-hoc methods in both in-distribution and distribution-shifted scenarios.
+            Our code will be made publicly available.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video placeholder. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="under-construction">
+          <div class="icon-large">
+            <i class="fab fa-youtube"></i>
+          </div>
+          <p><strong>Paper Video</strong></p>
+          <p>Coming soon &mdash; video will be linked here</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video placeholder. -->
+  </div>
+</section>
+
+
+<!-- Method / Results placeholder -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="under-construction">
+          <div class="icon-large">
+            <i class="fas fa-tools"></i>
+          </div>
+          <p><strong>Under Construction</strong></p>
+          <p>Method figures and description coming soon.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="under-construction">
+          <div class="icon-large">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <p><strong>Under Construction</strong></p>
+          <p>Quantitative and qualitative results coming soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>TBD</code>
+ </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website is built upon the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> template.
+            We thank the authors for making their source code publicly available.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
