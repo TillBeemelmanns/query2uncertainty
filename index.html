@@ -26,30 +26,101 @@
   <script src="./static/js/index.js"></script>
 
   <style>
+    /* Title accent */
+    .title-accent {
+      background: linear-gradient(135deg, #1565C0, #42a5f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+    }
+
+    /* Under-construction boxes */
     .under-construction {
-      background-color: #f5f5f5;
-      border: 2px dashed #b5b5b5;
-      border-radius: 8px;
-      padding: 3rem 2rem;
+      background-color: #f8f9fc;
+      border: 2px dashed #c8d0e0;
+      border-radius: 12px;
+      padding: 3.5rem 2rem;
       text-align: center;
-      color: #7a7a7a;
+      color: #6b7a99;
       margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
     }
-    .under-construction .icon-large {
-      font-size: 3rem;
+    .under-construction::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(21,101,192,0.04), rgba(66,165,245,0.04));
+      pointer-events: none;
+    }
+    .under-construction .uc-icon {
+      font-size: 2.8rem;
       margin-bottom: 1rem;
-      color: #b5b5b5;
+      color: #90aad4;
+      animation: pulse-icon 2.4s ease-in-out infinite;
     }
-    .under-construction p {
-      font-size: 1.1rem;
+    @keyframes pulse-icon {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.55; transform: scale(0.93); }
     }
-    .tag.is-cvpr {
-      background-color: #1565C0;
+    .under-construction .uc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1565C0, #42a5f5);
       color: white;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 0.9rem;
+    }
+    .under-construction .uc-title {
+      font-size: 1.15rem;
       font-weight: 600;
+      color: #3a4a6b;
+      margin-bottom: 0.4rem;
+    }
+    .under-construction .uc-sub {
+      font-size: 0.95rem;
+      color: #8a96b0;
+    }
+
+    /* Progress bar */
+    .uc-progress {
+      margin: 1.4rem auto 0;
+      width: 180px;
+      height: 4px;
+      background: #dde3f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .uc-progress-bar {
+      height: 100%;
+      width: 35%;
+      background: linear-gradient(90deg, #1565C0, #42a5f5);
+      border-radius: 999px;
+      animation: progress-slide 2.4s ease-in-out infinite;
+    }
+    @keyframes progress-slide {
+      0%   { transform: translateX(-100%); }
+      50%  { transform: translateX(180%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* CVPR badge */
+    .tag.is-cvpr {
+      background: linear-gradient(135deg, #1565C0, #1976d2);
+      color: white;
+      font-size: 0.95rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.25);
     }
   </style>
 </head>
@@ -75,7 +146,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">Query2Uncertainty: Robust Uncertainty Quantification and Calibration for 3D Object Detection under Distribution Shift</h1>
+          <h1 class="title is-2 publication-title"><span class="title-accent">Query2Uncertainty</span>: Robust Uncertainty Quantification and Calibration for 3D Object Detection under Distribution Shift</h1>
 
           <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
             <span class="author-block">Till Beemelmanns<sup>1</sup>,&nbsp;</span>
@@ -101,7 +172,7 @@
             <div class="publication-links">
               <!-- arXiv Link. -->
               <span class="link-block">
-                <a href="https://query2uncertainty.github.io"
+                <a href="https://tillbeemelmanns.github.io/query2uncertainty/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -111,7 +182,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://query2uncertainty.github.io"
+                <a href="https://tillbeemelmanns.github.io/query2uncertainty/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -121,7 +192,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://query2uncertainty.github.io"
+                <a href="https://tillbeemelmanns.github.io/query2uncertainty/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -143,11 +214,11 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <div class="under-construction">
-        <div class="icon-large">
-          <i class="fas fa-image"></i>
-        </div>
-        <p><strong>Teaser Figure</strong></p>
-        <p>Coming soon &mdash; image/video placeholder</p>
+        <div class="uc-icon"><i class="fas fa-image"></i></div>
+        <div class="uc-badge"><i class="fas fa-clock"></i> Coming Soon</div>
+        <div class="uc-title">Teaser Figure</div>
+        <div class="uc-sub">An overview figure will be added here.</div>
+        <div class="uc-progress"><div class="uc-progress-bar"></div></div>
       </div>
     </div>
   </div>
@@ -180,15 +251,15 @@
     <!--/ Abstract. -->
 
     <!-- Paper video placeholder. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
         <h2 class="title is-3">Video</h2>
         <div class="under-construction">
-          <div class="icon-large">
-            <i class="fab fa-youtube"></i>
-          </div>
-          <p><strong>Paper Video</strong></p>
-          <p>Coming soon &mdash; video will be linked here</p>
+          <div class="uc-icon"><i class="fab fa-youtube"></i></div>
+          <div class="uc-badge"><i class="fas fa-clock"></i> Coming Soon</div>
+          <div class="uc-title">Paper Video</div>
+          <div class="uc-sub">The paper video will be embedded here.</div>
+          <div class="uc-progress"><div class="uc-progress-bar"></div></div>
         </div>
       </div>
     </div>
@@ -204,11 +275,11 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Method</h2>
         <div class="under-construction">
-          <div class="icon-large">
-            <i class="fas fa-tools"></i>
-          </div>
-          <p><strong>Under Construction</strong></p>
-          <p>Method figures and description coming soon.</p>
+          <div class="uc-icon"><i class="fas fa-drafting-compass"></i></div>
+          <div class="uc-badge"><i class="fas fa-clock"></i> Coming Soon</div>
+          <div class="uc-title">Method Overview</div>
+          <div class="uc-sub">Method figures and description will be added here.</div>
+          <div class="uc-progress"><div class="uc-progress-bar"></div></div>
         </div>
       </div>
     </div>
@@ -217,11 +288,11 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
         <div class="under-construction">
-          <div class="icon-large">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <p><strong>Under Construction</strong></p>
-          <p>Quantitative and qualitative results coming soon.</p>
+          <div class="uc-icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="uc-badge"><i class="fas fa-clock"></i> Coming Soon</div>
+          <div class="uc-title">Results</div>
+          <div class="uc-sub">Quantitative and qualitative results will be presented here.</div>
+          <div class="uc-progress"><div class="uc-progress-bar"></div></div>
         </div>
       </div>
     </div>
