@@ -25,6 +25,12 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})"></script>
+
   <style>
     /* Title accent */
     .title-accent {
@@ -264,12 +270,49 @@
 </section>
 
 
-<!-- Method / Results placeholder -->
+<!-- Method / Results -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Method</h2>
+
+        <div class="content has-text-justified" style="margin-bottom: 1.5rem;">
+          <p>
+            To introduce robust regression and classification calibration for DETR-style 3D object detectors,
+            we propose to couple feature density-based uncertainty quantification with post-hoc calibration.
+            We establish an uncertainty evaluation framework tailored for nuScenes,
+            introducing metrics that assess both classification and regression uncertainties.
+            Our approach outperforms established baselines for in-distribution and distribution-shifted scenarios.
+          </p>
+          <p>
+            From 3D sensor data (either multi-view camera or point cloud), our method first extracts features
+            using standard backbones and applies positional encodings to retain spatial information.
+            Following DETR-style 3D detector pipelines, we interpret these features as tokens
+            (<span class="color-square" style="display:inline-block;width:13px;height:13px;background:rgb(255,242,205);border:1.5px solid rgb(213,182,82);border-radius:2px;vertical-align:middle;margin:0 2px;"></span>)
+            and feed them into our probabilistic decoder-only transformer, where they interact with a set of
+            learnable object queries \(z_0\)
+            (<span class="color-square" style="display:inline-block;width:13px;height:13px;background:rgb(213,232,212);border:1.5px solid rgb(130,179,102);border-radius:2px;vertical-align:middle;margin:0 2px;"></span>).
+            The decoder outputs refined queries \(z\)
+            (<span class="color-square" style="display:inline-block;width:13px;height:13px;background:rgb(213,232,212);border:1.5px solid rgb(130,179,102);border-radius:2px;vertical-align:middle;margin:0 2px;"></span>),
+            which are then used to predict class scores, mean box parameters, and associated variances
+            using separate detection heads
+            (<span class="color-square" style="display:inline-block;width:13px;height:13px;background:#d8e9fc;border:1.5px solid rgb(107,141,190);border-radius:2px;vertical-align:middle;margin:0 2px;"></span>),
+            obtaining boxes in the form of
+            \(\mathbf{b}=(\hat{x},\hat{y},\hat{z},\hat{\ell},\hat{w},\hat{h},\hat{\theta},\hat{v}_x,\hat{v}_y,\sigma_x^2,\sigma_y^2,\sigma_z^2,\sigma_{\ell}^2,\sigma_w^2,\sigma_h^2,\kappa_\theta)\).
+            Simultaneously, we use an epistemic density estimation module that models how well the final
+            object queries align with True Positive queries from the training set.
+            At test time, we compute the density of each object query feature
+            (<span class="color-square" style="display:inline-block;width:13px;height:13px;background:rgb(255,223,209);border:1.5px solid rgb(250,139,139);border-radius:2px;vertical-align:middle;margin:0 2px;"></span>)
+            and use this information to dynamically calibrate both the classification and regression uncertainties
+            in our density-aware post-hoc calibration module
+            (<span class="color-square" style="display:inline-block;width:13px;height:13px;background:rgb(248,206,204);border:1.5px solid rgb(204,29,12);border-radius:2px;vertical-align:middle;margin:0 2px;"></span>).
+            For our experiments, we build upon the DETR-style 3D detector PETR, which processes multi-view camera images.
+            To further validate our approach, we use a LiDAR-based detector and a SECOND point cloud encoder
+            instead of the camera-based encoder while keeping the rest of the architecture unchanged.
+          </p>
+        </div>
+
         <img src="./static/images/main_figure_v10.png" alt="Query2Uncertainty Method Overview" style="width:100%; border-radius:8px;">
       </div>
     </div>
