@@ -320,12 +320,54 @@
     <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
-        <div class="under-construction">
-          <div class="uc-icon"><i class="fas fa-chart-bar"></i></div>
-          <div class="uc-badge"><i class="fas fa-clock"></i> Coming Soon</div>
-          <div class="uc-title">Results</div>
-          <div class="uc-sub">Quantitative and qualitative results will be presented here.</div>
-          <div class="uc-progress"><div class="uc-progress-bar"></div></div>
+
+        <div class="content has-text-justified" style="margin-bottom: 1.5rem;">
+          <p>
+            We evaluate the calibration performance of our density-based methods using the
+            <a href="https://www.nuscenes.org/" target="_blank" rel="noopener noreferrer">nuScenes</a>
+            dataset for In-Distribution (ID) data and
+            <a href="https://github.com/ika-rwth-aachen/MultiCorrupt" target="_blank" rel="noopener noreferrer">MultiCorrupt</a>
+            for distribution-shift scenarios.
+            Using our UQ benchmark, focused on fair class-wise evaluation, our approach outperforms
+            sample-based methods, classic post-hoc methods, and other baselines in both ID and
+            distribution-shift scenarios.
+          </p>
+        </div>
+
+        <h3 class="title is-5" style="margin-top: 1.5rem; margin-bottom: 0.75rem;">In-Distribution Results</h3>
+        <div class="columns is-centered">
+          <div class="column">
+            <figure class="image">
+              <a href="./static/images/main_id_cls.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/main_id_cls.png" alt="In-Distribution Classification Calibration Results" style="border-radius:8px; cursor:zoom-in;">
+              </a>
+            </figure>
+          </div>
+          <div class="column">
+            <figure class="image">
+              <a href="./static/images/main_id_reg.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/main_id_reg.png" alt="In-Distribution Regression Calibration Results" style="border-radius:8px; cursor:zoom-in;">
+              </a>
+            </figure>
+          </div>
+        </div>
+
+        <h3 class="title is-5" style="margin-top: 2rem; margin-bottom: 0.75rem;">Distribution Shift Results</h3>
+        <div class="columns is-centered">
+          <div class="column">
+            <figure class="image">
+              <a href="./static/images/main_ds_cls.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/main_ds_cls.png" alt="Distribution Shift Classification Calibration Results" style="border-radius:8px; cursor:zoom-in;">
+              </a>
+            </figure>
+          </div>
+          <div class="column">
+            <figure class="image">
+              <a href="./static/images/main_ds_reg.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/main_ds_reg.png" alt="Distribution Shift Regression Calibration Results" style="border-radius:8px; cursor:zoom-in;">
+              </a>
+            </figure>
+          </div>
         </div>
       </div>
     </div>
